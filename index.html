@@ -566,6 +566,54 @@
             font-size: 0.9rem;
         }
 
+        /* Resume Download Section */
+        .resume-downloads {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .resume-card {
+            background: rgba(45, 53, 97, 0.3);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(74, 144, 226, 0.1);
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .resume-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(74, 144, 226, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .resume-icon {
+            color: var(--accent-teal);
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .resume-card h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .resume-card p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .resume-card .btn {
+            width: 100%;
+        }
+
         /* Contact Section */
         #contact {
             background: rgba(26, 31, 58, 0.3);
@@ -782,6 +830,15 @@
                 padding: 1.5rem;
             }
 
+            .resume-downloads {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .resume-card {
+                padding: 2rem 1.5rem;
+            }
+
             #contact {
                 padding: 5rem 1rem;
             }
@@ -925,6 +982,24 @@
                 font-size: 0.85rem;
             }
 
+            .resume-downloads {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .resume-card {
+                padding: 2rem 1.25rem;
+            }
+
+            .resume-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .resume-icon svg {
+                width: 50px;
+                height: 50px;
+            }
+
             #contact {
                 padding: 4rem 1rem;
             }
@@ -1007,6 +1082,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#resume">Resume</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -1223,22 +1299,22 @@
             <div class="cert-grid">
                 <div class="cert-card fade-in">
                     <div class="cert-icon">📊</div>
-                    <h3 class="cert-title">Data Science Specialist</h3>
-                    <p class="cert-issuer">Professional Certifications</p>
+                    <h3 class="cert-title">Thrive Africa Courses</h3>
+                    <p class="cert-issuer">Professional Development</p>
                 </div>
                 <div class="cert-card fade-in">
                     <div class="cert-icon">🤖</div>
-                    <h3 class="cert-title">Machine Learning Engineer</h3>
+                    <h3 class="cert-title">Machine Learning</h3>
                     <p class="cert-issuer">Advanced Training</p>
                 </div>
                 <div class="cert-card fade-in">
                     <div class="cert-icon">🎓</div>
-                    <h3 class="cert-title">Statistical Analysis</h3>
-                    <p class="cert-issuer">Academic Focus</p>
+                    <h3 class="cert-title">Data Science & Analytics</h3>
+                    <p class="cert-issuer">BSc - GCTU (2028)</p>
                 </div>
                 <div class="cert-card fade-in">
                     <div class="cert-icon">💻</div>
-                    <h3 class="cert-title">Python Programming</h3>
+                    <h3 class="cert-title">Python & SQL</h3>
                     <p class="cert-issuer">Technical Proficiency</p>
                 </div>
             </div>
@@ -1246,6 +1322,50 @@
                 <a href="https://github.com/KevinOcran/Certifications" class="btn btn-secondary" target="_blank">
                     View All Certifications
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume" style="background: linear-gradient(180deg, transparent 0%, rgba(26, 31, 58, 0.3) 100%);">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Download</div>
+                <h2 class="section-title">Resume</h2>
+                <p class="section-subtitle">
+                    Get my complete professional resume in your preferred format
+                </p>
+            </div>
+            <div class="resume-downloads fade-in">
+                <div class="resume-card">
+                    <div class="resume-icon">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="12" y1="18" x2="12" y2="12"></line>
+                            <line x1="9" y1="15" x2="15" y2="15"></line>
+                        </svg>
+                    </div>
+                    <h3>PDF Format</h3>
+                    <p>Best for viewing and printing</p>
+                    <a href="Kevin_Ampong_Ocran_Resume.pdf" class="btn btn-primary" download>
+                        Download PDF
+                    </a>
+                </div>
+                <div class="resume-card">
+                    <div class="resume-icon">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="9" y1="15" x2="15" y2="15"></line>
+                            <line x1="12" y1="18" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3>Word Format</h3>
+                    <p>Editable Microsoft Word document</p>
+                    <a href="Kevin_Ampong_Ocran_Resume.docx" class="btn btn-primary" download>
+                        Download DOCX
+                    </a>
+                </div>
             </div>
         </div>
     </section>
