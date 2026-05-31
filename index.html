@@ -22,18 +22,9 @@
             --text-secondary: #a8aab7;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Responsive images and media */
-        img, video, svg {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
+        img, video, svg { max-width: 100%; height: auto; display: block; }
 
         body {
             font-family: 'DM Sans', sans-serif;
@@ -45,43 +36,19 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Touch target optimization */
-        a, button {
-            min-height: 44px;
-            min-width: 44px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
+        a, button { min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; }
+        button, .btn { -webkit-tap-highlight-color: transparent; user-select: none; }
 
-        /* Prevent text selection on buttons for better mobile UX */
-        button, .btn {
-            -webkit-tap-highlight-color: transparent;
-            user-select: none;
-        }
-
-        /* Animated background */
         .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
             background: linear-gradient(135deg, var(--midnight) 0%, var(--deep-blue) 50%, var(--slate) 100%);
         }
 
         .bg-animation::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(74, 144, 226, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(80, 201, 206, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(255, 107, 107, 0.05) 0%, transparent 50%);
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(74, 144, 226, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(80, 201, 206, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(255, 107, 107, 0.05) 0%, transparent 50%);
             animation: drift 20s ease-in-out infinite;
         }
 
@@ -91,16 +58,10 @@
             66% { transform: translate(-5%, 5%) rotate(-5deg); }
         }
 
-        /* Navigation */
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(10, 14, 39, 0.85);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            padding: 1.5rem 0;
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(10, 14, 39, 0.85); backdrop-filter: blur(20px);
+            z-index: 1000; padding: 1.5rem 0;
             border-bottom: 1px solid rgba(74, 144, 226, 0.1);
             animation: slideDown 0.6s ease-out;
         }
@@ -111,106 +72,48 @@
         }
 
         nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center; position: relative;
         }
 
         .logo {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-family: 'Crimson Pro', serif; font-size: 1.5rem; font-weight: 600;
             letter-spacing: -0.02em;
             background: linear-gradient(135deg, var(--accent-teal), var(--accent-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
 
         .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 5px;
-            z-index: 1001;
+            display: none; flex-direction: column; gap: 5px;
+            background: none; border: none; cursor: pointer; padding: 5px; z-index: 1001;
         }
 
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--accent-teal);
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
+        .menu-toggle span { width: 25px; height: 3px; background: var(--accent-teal); border-radius: 3px; transition: all 0.3s ease; }
+        .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
 
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 
         .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            position: relative;
+            color: var(--text-secondary); text-decoration: none; font-weight: 500;
+            font-size: 0.95rem; transition: all 0.3s ease; position: relative;
         }
 
         .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-teal);
-            transition: width 0.3s ease;
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+            background: var(--accent-teal); transition: width 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:hover::after { width: 100%; }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8rem 2rem 4rem;
-            position: relative;
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            padding: 8rem 2rem 4rem; position: relative;
         }
 
-        .hero-content {
-            max-width: 900px;
-            text-align: center;
-            animation: fadeInUp 1s ease-out;
-        }
+        .hero-content { max-width: 900px; text-align: center; animation: fadeInUp 1s ease-out; }
 
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(40px); }
@@ -218,853 +121,319 @@
         }
 
         .hero-subtitle {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            color: var(--accent-teal);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
+            font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--accent-teal);
+            letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem;
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
         .hero h1 {
-            font-family: 'Crimson Pro', serif;
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            font-weight: 300;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
+            font-family: 'Crimson Pro', serif; font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 300; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em;
             animation: fadeInUp 1s ease-out 0.4s both;
         }
 
         .hero h1 strong {
             font-weight: 600;
             background: linear-gradient(135deg, var(--accent-teal), var(--accent-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
 
         .hero-description {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            line-height: 1.8;
-            animation: fadeInUp 1s ease-out 0.6s both;
+            font-size: 1.25rem; color: var(--text-secondary); max-width: 700px;
+            margin: 0 auto 3rem; line-height: 1.8; animation: fadeInUp 1s ease-out 0.6s both;
         }
 
-        .hero-cta {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.8s both;
-        }
+        .hero-cta { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; animation: fadeInUp 1s ease-out 0.8s both; }
 
         .btn {
-            padding: 1rem 2.5rem;
-            border-radius: 8px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-            font-size: 1rem;
-            border: 2px solid transparent;
+            padding: 1rem 2.5rem; border-radius: 8px; font-weight: 500; text-decoration: none;
+            transition: all 0.3s ease; display: inline-block; font-size: 1rem; border: 2px solid transparent;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--accent-teal), var(--accent-blue));
-            color: white;
-            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.2);
+            color: white; box-shadow: 0 10px 30px rgba(74, 144, 226, 0.2);
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(74, 144, 226, 0.3);
-        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(74, 144, 226, 0.3); }
 
         .btn-secondary {
-            background: rgba(74, 144, 226, 0.1);
-            color: var(--accent-teal);
-            border: 2px solid var(--accent-teal);
+            background: rgba(74, 144, 226, 0.1); color: var(--accent-teal); border: 2px solid var(--accent-teal);
         }
 
-        .btn-secondary:hover {
-            background: rgba(74, 144, 226, 0.2);
-            transform: translateY(-2px);
-        }
+        .btn-secondary:hover { background: rgba(74, 144, 226, 0.2); transform: translateY(-2px); }
 
-        /* Section Styles */
-        section {
-            padding: 6rem 2rem;
-            position: relative;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
+        section { padding: 6rem 2rem; position: relative; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
 
         .section-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--accent-teal);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
+            font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--accent-teal);
+            letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem;
         }
 
         .section-title {
-            font-family: 'Crimson Pro', serif;
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 300;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
+            font-family: 'Crimson Pro', serif; font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 300; margin-bottom: 1rem; letter-spacing: -0.02em;
         }
 
-        .section-subtitle {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
+        .section-subtitle { font-size: 1.15rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
 
-        /* About Section */
-        #about {
-            background: linear-gradient(180deg, transparent 0%, rgba(26, 31, 58, 0.3) 100%);
-        }
+        #about { background: linear-gradient(180deg, transparent 0%, rgba(26, 31, 58, 0.3) 100%); }
 
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
+        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            color: var(--text-secondary);
-        }
+        .about-text { font-size: 1.1rem; line-height: 1.9; color: var(--text-secondary); }
+        .about-text p { margin-bottom: 1.5rem; }
+        .about-text strong { color: var(--text-primary); font-weight: 600; }
 
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
+        .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 
         .skill-category {
-            background: rgba(74, 144, 226, 0.05);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(74, 144, 226, 0.1);
-            transition: all 0.3s ease;
+            background: rgba(74, 144, 226, 0.05); padding: 2rem; border-radius: 12px;
+            border: 1px solid rgba(74, 144, 226, 0.1); transition: all 0.3s ease;
         }
 
         .skill-category:hover {
-            background: rgba(74, 144, 226, 0.08);
-            border-color: rgba(74, 144, 226, 0.2);
-            transform: translateY(-5px);
+            background: rgba(74, 144, 226, 0.08); border-color: rgba(74, 144, 226, 0.2); transform: translateY(-5px);
         }
 
-        .skill-category h3 {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: var(--accent-teal);
-        }
+        .skill-category h3 { font-family: 'DM Sans', sans-serif; font-size: 1.1rem; margin-bottom: 1rem; color: var(--accent-teal); }
+        .skill-category ul { list-style: none; }
+        .skill-category li { padding: 0.5rem 0; color: var(--text-secondary); font-size: 0.95rem; }
+        .skill-category li::before { content: '▹ '; color: var(--accent-teal); font-weight: bold; margin-right: 0.5rem; }
 
-        .skill-category ul {
-            list-style: none;
-        }
+        #projects { background: rgba(26, 31, 58, 0.2); }
 
-        .skill-category li {
-            padding: 0.5rem 0;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
 
-        .skill-category li::before {
-            content: '▹ ';
-            color: var(--accent-teal);
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-
-        /* Projects Section */
-        #projects {
-            background: rgba(26, 31, 58, 0.2);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        @media (max-width: 400px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        @media (max-width: 400px) { .projects-grid { grid-template-columns: 1fr; } }
 
         .project-card {
-            background: rgba(45, 53, 97, 0.3);
-            border-radius: 16px;
-            overflow: hidden;
+            background: rgba(45, 53, 97, 0.3); border-radius: 16px; overflow: hidden;
             border: 1px solid rgba(74, 144, 226, 0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative;
+        }
+
+        .project-card.featured {
+            border-color: rgba(80, 201, 206, 0.3);
+            background: rgba(45, 53, 97, 0.5);
         }
 
         .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
             background: linear-gradient(90deg, var(--accent-teal), var(--accent-blue));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
+            transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
         }
 
-        .project-card:hover::before {
-            transform: scaleX(1);
-        }
+        .project-card.featured::before { transform: scaleX(1); }
+
+        .project-card:hover::before { transform: scaleX(1); }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             border-color: rgba(74, 144, 226, 0.3);
         }
 
-        .project-header {
-            padding: 2rem;
-            background: rgba(74, 144, 226, 0.03);
-        }
+        .project-header { padding: 2rem; background: rgba(74, 144, 226, 0.03); }
 
-        .project-title {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
+        .project-header.featured-header { background: rgba(80, 201, 206, 0.05); }
+
+        .project-title { font-family: 'Crimson Pro', serif; font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text-primary); }
 
         .project-type {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--accent-teal);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+            font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+            color: var(--accent-teal); text-transform: uppercase; letter-spacing: 0.1em;
         }
 
-        .project-body {
-            padding: 2rem;
+        .featured-badge {
+            display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
+            padding: 0.25rem 0.75rem; background: rgba(80, 201, 206, 0.15);
+            border: 1px solid rgba(80, 201, 206, 0.4); border-radius: 20px;
+            color: var(--accent-teal); margin-bottom: 0.5rem; letter-spacing: 0.05em;
         }
 
-        .project-description {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
+        .project-body { padding: 2rem; }
+        .project-description { color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7; }
 
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
+        .project-tech { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem; }
 
         .tech-tag {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            padding: 0.4rem 0.9rem;
-            background: rgba(74, 144, 226, 0.1);
-            border: 1px solid rgba(74, 144, 226, 0.2);
-            border-radius: 20px;
-            color: var(--accent-blue);
+            font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; padding: 0.4rem 0.9rem;
+            background: rgba(74, 144, 226, 0.1); border: 1px solid rgba(74, 144, 226, 0.2);
+            border-radius: 20px; color: var(--accent-blue);
         }
 
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
+        .project-links { display: flex; gap: 1rem; }
 
         .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--accent-teal);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent-teal);
+            text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: all 0.3s ease;
         }
 
-        .project-link:hover {
-            color: var(--accent-blue);
-            transform: translateX(5px);
+        .project-link:hover { color: var(--accent-blue); transform: translateX(5px); }
+
+        .project-metrics {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+            margin-bottom: 1.5rem; padding: 1rem; background: rgba(74, 144, 226, 0.05);
+            border-radius: 8px; border: 1px solid rgba(74, 144, 226, 0.1);
         }
 
-        /* Certifications Section */
-        #certifications {
-            background: linear-gradient(180deg, rgba(26, 31, 58, 0.2) 0%, transparent 100%);
-        }
+        .metric { text-align: center; }
+        .metric-value { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 500; color: var(--accent-teal); }
+        .metric-label { font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem; }
 
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
+        #certifications { background: linear-gradient(180deg, rgba(26, 31, 58, 0.2) 0%, transparent 100%); }
+
+        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
 
         .cert-card {
-            background: rgba(74, 144, 226, 0.05);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(74, 144, 226, 0.1);
-            transition: all 0.3s ease;
-            text-align: center;
+            background: rgba(74, 144, 226, 0.05); padding: 2rem; border-radius: 12px;
+            border: 1px solid rgba(74, 144, 226, 0.1); transition: all 0.3s ease; text-align: center;
         }
 
-        .cert-card:hover {
-            background: rgba(74, 144, 226, 0.08);
-            border-color: rgba(74, 144, 226, 0.2);
-            transform: translateY(-5px);
-        }
+        .cert-card:hover { background: rgba(74, 144, 226, 0.08); border-color: rgba(74, 144, 226, 0.2); transform: translateY(-5px); }
 
-        .cert-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
+        .cert-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .cert-title { font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary); }
+        .cert-issuer { color: var(--accent-teal); font-size: 0.9rem; }
 
-        .cert-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-
-        .cert-issuer {
-            color: var(--accent-teal);
-            font-size: 0.9rem;
-        }
-
-        /* Resume Download Section */
-        .resume-downloads {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        .resume-downloads { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; max-width: 800px; margin: 0 auto; }
 
         .resume-card {
-            background: rgba(45, 53, 97, 0.3);
-            padding: 3rem 2rem;
-            border-radius: 16px;
-            border: 1px solid rgba(74, 144, 226, 0.1);
-            text-align: center;
-            transition: all 0.4s ease;
+            background: rgba(45, 53, 97, 0.3); padding: 3rem 2rem; border-radius: 16px;
+            border: 1px solid rgba(74, 144, 226, 0.1); text-align: center; transition: all 0.4s ease;
         }
 
-        .resume-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(74, 144, 226, 0.3);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
+        .resume-card:hover { transform: translateY(-10px); border-color: rgba(74, 144, 226, 0.3); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
 
-        .resume-icon {
-            color: var(--accent-teal);
-            margin-bottom: 1.5rem;
-            display: flex;
-            justify-content: center;
-        }
+        .resume-icon { color: var(--accent-teal); margin-bottom: 1.5rem; display: flex; justify-content: center; }
+        .resume-card h3 { font-family: 'Crimson Pro', serif; font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--text-primary); }
+        .resume-card p { color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.95rem; }
+        .resume-card .btn { width: 100%; }
 
-        .resume-card h3 {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
+        #contact { background: rgba(26, 31, 58, 0.3); padding: 8rem 2rem; }
 
-        .resume-card p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
-        }
+        .contact-content { text-align: center; max-width: 600px; margin: 0 auto; }
+        .contact-content h2 { font-family: 'Crimson Pro', serif; font-size: 3rem; margin-bottom: 1.5rem; }
+        .contact-content p { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 3rem; line-height: 1.8; }
 
-        .resume-card .btn {
-            width: 100%;
-        }
-
-        /* Contact Section */
-        #contact {
-            background: rgba(26, 31, 58, 0.3);
-            padding: 8rem 2rem;
-        }
-
-        .contact-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-content h2 {
-            font-family: 'Crimson Pro', serif;
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-content p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
+        .social-links { display: flex; gap: 1.5rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap; }
 
         .social-link {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(74, 144, 226, 0.1);
-            border: 1px solid rgba(74, 144, 226, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-teal);
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
+            width: 50px; height: 50px; border-radius: 50%; background: rgba(74, 144, 226, 0.1);
+            border: 1px solid rgba(74, 144, 226, 0.2); display: flex; align-items: center; justify-content: center;
+            color: var(--accent-teal); text-decoration: none; font-size: 1.2rem; transition: all 0.3s ease;
         }
 
-        .social-link:hover {
-            background: var(--accent-teal);
-            color: var(--midnight);
-            transform: translateY(-5px);
-        }
+        .social-link:hover { background: var(--accent-teal); color: var(--midnight); transform: translateY(-5px); }
 
-        /* Footer */
-        footer {
-            background: var(--midnight);
-            padding: 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(74, 144, 226, 0.1);
-        }
+        footer { background: var(--midnight); padding: 2rem; text-align: center; border-top: 1px solid rgba(74, 144, 226, 0.1); }
+        footer p { color: var(--text-secondary); font-size: 0.9rem; }
 
-        footer p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Design */
-        
-        /* Large tablets and small laptops */
         @media (max-width: 1024px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-
-            .hero {
-                padding: 7rem 1.5rem 3rem;
-            }
-
-            section {
-                padding: 5rem 1.5rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            }
+            .container { padding: 0 1.5rem; }
+            .hero { padding: 7rem 1.5rem 3rem; }
+            section { padding: 5rem 1.5rem; }
+            .projects-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
         }
 
-        /* Tablets */
         @media (max-width: 768px) {
-            nav .container {
-                padding: 0 1rem;
-            }
-
-            .logo {
-                font-size: 1.25rem;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
+            nav .container { padding: 0 1rem; }
+            .logo { font-size: 1.25rem; }
+            .menu-toggle { display: flex; }
             .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                height: 100vh;
-                width: 70%;
-                max-width: 300px;
-                background: rgba(10, 14, 39, 0.98);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                padding: 6rem 2rem 2rem;
-                gap: 2rem;
-                transition: right 0.3s ease;
-                border-left: 1px solid rgba(74, 144, 226, 0.2);
+                position: fixed; top: 0; right: -100%; height: 100vh; width: 70%; max-width: 300px;
+                background: rgba(10, 14, 39, 0.98); backdrop-filter: blur(20px);
+                flex-direction: column; padding: 6rem 2rem 2rem; gap: 2rem;
+                transition: right 0.3s ease; border-left: 1px solid rgba(74, 144, 226, 0.2);
                 box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
             }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .nav-links a {
-                font-size: 1.1rem;
-                padding: 0.5rem 0;
-            }
-
-            .hero {
-                min-height: 90vh;
-                padding: 6rem 1rem 3rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-description {
-                font-size: 1.1rem;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            section {
-                padding: 4rem 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .section-subtitle {
-                font-size: 1rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .about-text {
-                font-size: 1rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .skill-category {
-                padding: 1.5rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .project-header,
-            .project-body {
-                padding: 1.5rem;
-            }
-
-            .project-title {
-                font-size: 1.5rem;
-            }
-
-            .cert-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 1.5rem;
-            }
-
-            .cert-card {
-                padding: 1.5rem;
-            }
-
-            .resume-downloads {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .resume-card {
-                padding: 2rem 1.5rem;
-            }
-
-            #contact {
-                padding: 5rem 1rem;
-            }
-
-            .contact-content h2 {
-                font-size: 2rem;
-            }
-
-            .contact-content p {
-                font-size: 1rem;
-            }
-
-            .social-links {
-                gap: 1rem;
-            }
+            .nav-links.active { right: 0; }
+            .nav-links a { font-size: 1.1rem; padding: 0.5rem 0; }
+            .hero { min-height: 90vh; padding: 6rem 1rem 3rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-description { font-size: 1.1rem; }
+            .hero-cta { flex-direction: column; gap: 1rem; }
+            .btn { width: 100%; text-align: center; }
+            section { padding: 4rem 1rem; }
+            .section-title { font-size: 2rem; }
+            .section-subtitle { font-size: 1rem; }
+            .about-content { grid-template-columns: 1fr; gap: 3rem; }
+            .about-text { font-size: 1rem; }
+            .skills-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .skill-category { padding: 1.5rem; }
+            .projects-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .project-header, .project-body { padding: 1.5rem; }
+            .project-title { font-size: 1.5rem; }
+            .cert-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+            .cert-card { padding: 1.5rem; }
+            .resume-downloads { grid-template-columns: 1fr; gap: 2rem; }
+            .resume-card { padding: 2rem 1.5rem; }
+            #contact { padding: 5rem 1rem; }
+            .contact-content h2 { font-size: 2rem; }
+            .contact-content p { font-size: 1rem; }
+            .social-links { gap: 1rem; }
+            .project-metrics { grid-template-columns: repeat(3, 1fr); }
         }
 
-        /* Mobile phones */
         @media (max-width: 480px) {
-            nav {
-                padding: 1rem 0;
-            }
-
-            .logo {
-                font-size: 1.1rem;
-            }
-
-            .nav-links {
-                width: 80%;
-            }
-
-            .hero {
-                min-height: 85vh;
-                padding: 5rem 1rem 2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 0.75rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-                margin-bottom: 1rem;
-            }
-
-            .hero-description {
-                font-size: 1rem;
-                margin-bottom: 2rem;
-            }
-
-            .btn {
-                padding: 0.9rem 2rem;
-                font-size: 0.95rem;
-            }
-
-            section {
-                padding: 3rem 1rem;
-            }
-
-            .section-header {
-                margin-bottom: 2.5rem;
-            }
-
-            .section-label {
-                font-size: 0.75rem;
-            }
-
-            .section-title {
-                font-size: 1.75rem;
-                margin-bottom: 0.75rem;
-            }
-
-            .section-subtitle {
-                font-size: 0.95rem;
-            }
-
-            .about-content {
-                gap: 2rem;
-            }
-
-            .about-text p {
-                margin-bottom: 1rem;
-            }
-
-            .skill-category {
-                padding: 1.25rem;
-            }
-
-            .skill-category h3 {
-                font-size: 1rem;
-            }
-
-            .skill-category li {
-                font-size: 0.9rem;
-                padding: 0.4rem 0;
-            }
-
-            .projects-grid {
-                gap: 1.5rem;
-            }
-
-            .project-header,
-            .project-body {
-                padding: 1.25rem;
-            }
-
-            .project-title {
-                font-size: 1.3rem;
-            }
-
-            .project-type {
-                font-size: 0.7rem;
-            }
-
-            .project-description {
-                font-size: 0.95rem;
-            }
-
-            .tech-tag {
-                font-size: 0.7rem;
-                padding: 0.35rem 0.75rem;
-            }
-
-            .project-link {
-                font-size: 0.85rem;
-            }
-
-            .cert-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cert-icon {
-                font-size: 2rem;
-            }
-
-            .cert-title {
-                font-size: 0.95rem;
-            }
-
-            .cert-issuer {
-                font-size: 0.85rem;
-            }
-
-            .resume-downloads {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .resume-card {
-                padding: 2rem 1.25rem;
-            }
-
-            .resume-card h3 {
-                font-size: 1.3rem;
-            }
-
-            .resume-icon svg {
-                width: 50px;
-                height: 50px;
-            }
-
-            #contact {
-                padding: 4rem 1rem;
-            }
-
-            .contact-content h2 {
-                font-size: 1.75rem;
-                margin-bottom: 1rem;
-            }
-
-            .contact-content p {
-                font-size: 0.95rem;
-                margin-bottom: 2rem;
-            }
-
-            .social-links {
-                gap: 0.75rem;
-            }
-
-            .social-link {
-                width: 45px;
-                height: 45px;
-                font-size: 1.1rem;
-            }
-
-            footer {
-                padding: 1.5rem 1rem;
-            }
-
-            footer p {
-                font-size: 0.85rem;
-            }
+            nav { padding: 1rem 0; }
+            .logo { font-size: 1.1rem; }
+            .nav-links { width: 80%; }
+            .hero { min-height: 85vh; padding: 5rem 1rem 2rem; }
+            .hero-subtitle { font-size: 0.75rem; }
+            .hero h1 { font-size: 2rem; margin-bottom: 1rem; }
+            .hero-description { font-size: 1rem; margin-bottom: 2rem; }
+            .btn { padding: 0.9rem 2rem; font-size: 0.95rem; }
+            section { padding: 3rem 1rem; }
+            .section-header { margin-bottom: 2.5rem; }
+            .section-label { font-size: 0.75rem; }
+            .section-title { font-size: 1.75rem; margin-bottom: 0.75rem; }
+            .section-subtitle { font-size: 0.95rem; }
+            .about-content { gap: 2rem; }
+            .about-text p { margin-bottom: 1rem; }
+            .skill-category { padding: 1.25rem; }
+            .skill-category h3 { font-size: 1rem; }
+            .skill-category li { font-size: 0.9rem; padding: 0.4rem 0; }
+            .projects-grid { gap: 1.5rem; }
+            .project-header, .project-body { padding: 1.25rem; }
+            .project-title { font-size: 1.3rem; }
+            .project-type { font-size: 0.7rem; }
+            .project-description { font-size: 0.95rem; }
+            .tech-tag { font-size: 0.7rem; padding: 0.35rem 0.75rem; }
+            .project-link { font-size: 0.85rem; }
+            .cert-grid { grid-template-columns: 1fr; }
+            .cert-icon { font-size: 2rem; }
+            .cert-title { font-size: 0.95rem; }
+            .cert-issuer { font-size: 0.85rem; }
+            .resume-downloads { grid-template-columns: 1fr; gap: 1.5rem; }
+            .resume-card { padding: 2rem 1.25rem; }
+            .resume-card h3 { font-size: 1.3rem; }
+            .resume-icon svg { width: 50px; height: 50px; }
+            #contact { padding: 4rem 1rem; }
+            .contact-content h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+            .contact-content p { font-size: 0.95rem; margin-bottom: 2rem; }
+            .social-links { gap: 0.75rem; }
+            .social-link { width: 45px; height: 45px; font-size: 1.1rem; }
+            footer { padding: 1.5rem 1rem; }
+            footer p { font-size: 0.85rem; }
+            .project-metrics { grid-template-columns: 1fr; gap: 0.75rem; }
+            .metric-value { font-size: 1rem; }
         }
 
-        /* Extra small devices */
         @media (max-width: 360px) {
-            .hero h1 {
-                font-size: 1.75rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .project-title {
-                font-size: 1.2rem;
-            }
-
-            .social-link {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
+            .hero h1 { font-size: 1.75rem; }
+            .section-title { font-size: 1.5rem; }
+            .project-title { font-size: 1.2rem; }
+            .social-link { width: 40px; height: 40px; font-size: 1rem; }
         }
 
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-
-        /* Prevent long words from breaking layout */
-        h1, h2, h3, h4, h5, h6, p, a, li {
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6, p, a, li { word-wrap: break-word; overflow-wrap: break-word; }
     </style>
 </head>
 <body>
@@ -1074,9 +443,7 @@
         <div class="container">
             <div class="logo">Kevin Ampong Ocran</div>
             <button class="menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
@@ -1093,7 +460,7 @@
             <div class="hero-subtitle">Data Science Student Portfolio</div>
             <h1>Building Skills in <strong>Data Analysis & ML</strong></h1>
             <p class="hero-description">
-                Aspiring data scientist learning to extract insights from data through statistical analysis, 
+                Aspiring data scientist learning to extract insights from data through statistical analysis,
                 machine learning, and visualization. Currently pursuing BSc Data Science & Analytics at GCTU.
             </p>
             <div class="hero-cta">
@@ -1115,30 +482,32 @@
             <div class="about-content">
                 <div class="about-text fade-in">
                     <p>
-                        I'm a <strong>data science student at GCTU</strong> (expected graduation 2028) building foundational 
-                        skills in Python, statistical analysis, and machine learning through academic coursework and 
+                        I'm a <strong>data science student at GCTU</strong> (expected graduation 2028) building foundational
+                        skills in Python, statistical analysis, and machine learning through academic coursework and
                         self-directed projects.
                     </p>
                     <p>
-                        I completed an intensive <strong>3-month Data Science & Analytics program at Thrive Africa</strong>, 
-                        where I learned to work with libraries like Pandas, Scikit-learn, and Matplotlib to analyze datasets 
+                        I completed an intensive <strong>3-month Data Science & Analytics program at Thrive Africa</strong>,
+                        where I learned to work with libraries like Pandas, Scikit-learn, and Matplotlib to analyze datasets
                         and build classification models.
                     </p>
                     <p>
-                        My projects demonstrate core data science workflows: exploratory data analysis, data cleaning, 
-                        feature engineering, model training, and visualization. I'm actively seeking 
-                        <strong>internship opportunities</strong> to apply these skills in real-world settings and continue 
-                        learning from experienced professionals.
+                        Most recently, I completed a <strong>cloud ML internship</strong> where I built and deployed a
+                        full end-to-end anomaly detection system on Google Cloud Platform — from raw data to a live
+                        production web app with MLflow experiment tracking, a FastAPI prediction service, and a
+                        role-based React dashboard. I'm actively seeking
+                        <strong>internship opportunities</strong> to continue applying these skills in real-world settings.
                     </p>
                 </div>
                 <div class="skills-grid fade-in">
                     <div class="skill-category">
                         <h3>Machine Learning</h3>
                         <ul>
-                            <li>Scikit-learn (Classification)</li>
+                            <li>Scikit-learn</li>
+                            <li>Isolation Forest</li>
                             <li>XGBoost</li>
-                            <li>Model Evaluation Metrics</li>
-                            <li>Hyperparameter Tuning</li>
+                            <li>Feature Engineering</li>
+                            <li>Model Evaluation</li>
                         </ul>
                     </div>
                     <div class="skill-category">
@@ -1151,11 +520,13 @@
                         </ul>
                     </div>
                     <div class="skill-category">
-                        <h3>Visualization</h3>
+                        <h3>MLOps & Cloud</h3>
                         <ul>
-                            <li>Matplotlib / Seaborn</li>
-                            <li>Plotly</li>
-                            <li>Data Storytelling</li>
+                            <li>MLflow (Tracking & Registry)</li>
+                            <li>Google Cloud Run</li>
+                            <li>FastAPI</li>
+                            <li>Docker</li>
+                            <li>Vercel</li>
                         </ul>
                     </div>
                     <div class="skill-category">
@@ -1164,7 +535,8 @@
                             <li>Python</li>
                             <li>SQL (PostgreSQL)</li>
                             <li>Git / GitHub</li>
-                            <li>Jupyter Notebooks</li>
+                            <li>Google Cloud Platform</li>
+                            <li>Supabase</li>
                         </ul>
                     </div>
                 </div>
@@ -1176,13 +548,64 @@
         <div class="container">
             <div class="section-header fade-in">
                 <div class="section-label">Portfolio</div>
-                <h2 class="section-title">Learning Projects</h2>
+                <h2 class="section-title">Projects</h2>
                 <p class="section-subtitle">
-                    Academic and self-directed projects demonstrating data analysis, feature engineering, 
-                    and machine learning fundamentals
+                    From academic exercises to a fully deployed cloud ML system
                 </p>
             </div>
             <div class="projects-grid">
+
+                <!-- FEATURED PROJECT -->
+                <div class="project-card featured fade-in">
+                    <div class="project-header featured-header">
+                        <div class="featured-badge">⭐ Featured — Cloud ML Internship 2026</div>
+                        <div class="project-type">ML · Cloud · Full Stack</div>
+                        <h3 class="project-title">Energy Anomaly Detector</h3>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            End-to-end ML system that detects anomalies in household electricity consumption
+                            using 2,075,259 rows of unlabelled sensor data. Built an Isolation Forest pipeline
+                            with 16 engineered features, deployed on Google Cloud Run with MLflow experiment
+                            tracking across 15 training runs, and a full React web UI with Admin MLOps
+                            controls and User prediction views. Competed head-to-head against Group D2 on
+                            False Positive Rate.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <div class="metric-value">1.4809%</div>
+                                <div class="metric-label">Val FPR</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">15</div>
+                                <div class="metric-label">Model Versions</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">2.07M</div>
+                                <div class="metric-label">Training Rows</div>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Isolation Forest</span>
+                            <span class="tech-tag">MLflow</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">Google Cloud Run</span>
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Supabase</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://power-anomaly-detector.vercel.app" class="project-link" target="_blank">
+                                Live Demo →
+                            </a>
+                            <a href="https://github.com/cloud-ml-internship-2026/group-d1" class="project-link" target="_blank">
+                                GitHub →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="project-card fade-in">
                     <div class="project-header">
                         <div class="project-type">Classification</div>
@@ -1190,9 +613,9 @@
                     </div>
                     <div class="project-body">
                         <p class="project-description">
-                            Trained classification models (Logistic Regression, Random Forest, XGBoost) to predict 
-                            passenger survival on the Titanic dataset. Implemented feature engineering techniques 
-                            including one-hot encoding, log transformations, and scaling. Achieved 83% test accuracy 
+                            Trained classification models (Logistic Regression, Random Forest, XGBoost) to predict
+                            passenger survival on the Titanic dataset. Implemented feature engineering techniques
+                            including one-hot encoding, log transformations, and scaling. Achieved 83% test accuracy
                             (vs. 62% baseline) using Random Forest with hyperparameter tuning via RandomizedSearchCV.
                         </p>
                         <div class="project-tech">
@@ -1217,9 +640,9 @@
                     </div>
                     <div class="project-body">
                         <p class="project-description">
-                            Built an ETL pipeline to clean and structure 500K+ messy retail transaction records. 
-                            Handled missing values, duplicates, and cancelled orders. Designed a star-schema database 
-                            in PostgreSQL with fact and dimension tables. Improved data quality from ~70% to 95%+ 
+                            Built an ETL pipeline to clean and structure 500K+ messy retail transaction records.
+                            Handled missing values, duplicates, and cancelled orders. Designed a star-schema database
+                            in PostgreSQL with fact and dimension tables. Improved data quality from ~70% to 95%+
                             clean records through systematic validation rules.
                         </p>
                         <div class="project-tech">
@@ -1243,9 +666,9 @@
                     </div>
                     <div class="project-body">
                         <p class="project-description">
-                            Analyzed GitHub repository activity patterns using the GitHub REST API. Built data collection 
-                            pipeline with rate limiting, cleaned nested JSON responses, and performed time-series analysis 
-                            to identify weekly contribution patterns. Created visualizations including heatmaps and trend 
+                            Analyzed GitHub repository activity patterns using the GitHub REST API. Built data collection
+                            pipeline with rate limiting, cleaned nested JSON responses, and performed time-series analysis
+                            to identify weekly contribution patterns. Created visualizations including heatmaps and trend
                             analysis to measure project health indicators.
                         </p>
                         <div class="project-tech">
@@ -1269,8 +692,8 @@
                     </div>
                     <div class="project-body">
                         <p class="project-description">
-                            Central repository containing all data science learning projects, practice notebooks, 
-                            and study materials. Includes exploratory data analysis exercises, algorithm implementations, 
+                            Central repository containing all data science learning projects, practice notebooks,
+                            and study materials. Includes exploratory data analysis exercises, algorithm implementations,
                             and documentation of learning progress throughout my data science journey.
                         </p>
                         <div class="project-tech">
@@ -1285,6 +708,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -1294,15 +718,18 @@
             <div class="section-header fade-in">
                 <div class="section-label">Credentials</div>
                 <h2 class="section-title">Education & Training</h2>
-                <p class="section-subtitle">
-                    Formal education and professional development courses
-                </p>
+                <p class="section-subtitle">Formal education and professional development courses</p>
             </div>
             <div class="cert-grid">
                 <div class="cert-card fade-in">
                     <div class="cert-icon">🎓</div>
                     <h3 class="cert-title">BSc Data Science & Analytics</h3>
                     <p class="cert-issuer">GCTU (Expected 2028)</p>
+                </div>
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">☁️</div>
+                    <h3 class="cert-title">Cloud ML Internship</h3>
+                    <p class="cert-issuer">cloud-ml-internship-2026</p>
                 </div>
                 <div class="cert-card fade-in">
                     <div class="cert-icon">📊</div>
@@ -1343,9 +770,7 @@
             <div class="section-header fade-in">
                 <div class="section-label">Download</div>
                 <h2 class="section-title">Resume</h2>
-                <p class="section-subtitle">
-                    Get my complete resume in your preferred format
-                </p>
+                <p class="section-subtitle">Get my complete resume in your preferred format</p>
             </div>
             <div class="resume-downloads fade-in">
                 <div class="resume-card">
@@ -1363,6 +788,7 @@
                         Download PDF
                     </a>
                 </div>
+            </div>
         </div>
     </section>
 
@@ -1371,8 +797,8 @@
             <div class="contact-content fade-in">
                 <h2>Let's Connect</h2>
                 <p>
-                    I'm actively seeking data science internships and entry-level opportunities where I can 
-                    apply my skills and continue learning. Open to discussing projects, collaboration, or 
+                    I'm actively seeking data science internships and entry-level opportunities where I can
+                    apply my skills and continue learning. Open to discussing projects, collaboration, or
                     any opportunities to grow as a data professional.
                 </p>
                 <a href="mailto:ocrankevin42@gmail.com" class="btn btn-primary">Get In Touch</a>
@@ -1414,12 +840,11 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Kevin Ampong Ocran. Building skills in data science, one project at a time.</p>
+            <p>&copy; 2026 Kevin Ampong Ocran. Building skills in data science, one project at a time.</p>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
         const navLinksItems = document.querySelectorAll('.nav-links a');
@@ -1429,7 +854,6 @@
             navLinks.classList.toggle('active');
         });
 
-        // Close menu when clicking on a link
         navLinksItems.forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
@@ -1437,7 +861,6 @@
             });
         });
 
-        // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
                 menuToggle.classList.remove('active');
@@ -1445,40 +868,26 @@
             }
         });
 
-        // Smooth scroll reveal animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); }
             });
         }, observerOptions);
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Active nav link on scroll
         window.addEventListener('scroll', () => {
             let current = '';
             const sections = document.querySelectorAll('section');
-            
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
+                if (pageYOffset >= sectionTop - 200) { current = section.getAttribute('id'); }
             });
-
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
+                if (link.getAttribute('href').slice(1) === current) { link.classList.add('active'); }
             });
         });
     </script>
